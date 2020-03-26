@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -12,7 +13,7 @@ class PostController extends Controller
 		"author" => "string|required",
 		"text" => "string|required",
 		"category" => "string|required|max:50",
-		"original_source" => "string",
+		"original_source" => "nullable|string",
 		"img" => "string|required"
 	];
 	/**
@@ -51,9 +52,9 @@ class PostController extends Controller
 		$post->slug = Str::slug($data['title']);
 		$saved = $post->save();
 		if ($saved) {
-			dd($post);
 			return redirect()->route("post.show", $post);
 		}
+		abort('404');
 	}
 
 	/**
@@ -62,9 +63,9 @@ class PostController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function show(Post $post)
 	{
-		//
+		return view('post.show', compact('post'));
 	}
 
 	/**
