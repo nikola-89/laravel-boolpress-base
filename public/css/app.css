@@ -10897,23 +10897,3 @@ a.text-dark:focus {
   width: 100%;
 }
 
-::-webkit-input-placeholder {
-  text-transform: uppercase;
-}
-
-::-moz-placeholder {
-  text-transform: uppercase;
-}
-
-:-ms-input-placeholder {
-  text-transform: uppercase;
-}
-
-::-ms-input-placeholder {
-  text-transform: uppercase;
-}
-
-::placeholder {
-  text-transform: uppercase;
-}
-

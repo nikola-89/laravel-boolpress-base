@@ -74,9 +74,9 @@ class PostController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id)
+	public function edit(Post $post)
 	{
-		//
+		return view('post.edit', compact('post'));
 	}
 
 	/**
@@ -86,9 +86,16 @@ class PostController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update(Request $request, Post $post)
 	{
-		//
+		$request->validate($this->validationPost);
+		$data = $request->all();
+		$post->fill($data);
+		$updated = $post->update();
+		if ($updated) {
+			return redirect()->route('post.show', $post);
+		}
+		abort('404');
 	}
 
 	/**
@@ -97,8 +104,13 @@ class PostController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id)
+	public function destroy(Post $post)
 	{
-		//
+		if (empty($post)) {
+		abort('404');
+		}
+		$id = $post->id;
+		$post->delete();
+		return redirect()->route('post.index')->with('successDelete', $id);
 	}
 }
