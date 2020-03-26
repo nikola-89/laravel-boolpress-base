@@ -12,8 +12,16 @@
 	</div>
 </div>
 @endif
-
-<div class="container">
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-xl-12">
+			<div class="add-btn">
+				<a href="{{route('post.create')}}"><button class="btn btn-primary btn-lg btn-block">Aggiungi</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container mt-5">
 	<div class="row">
 		<div class="col-xl-12">
 			@foreach ($posts as $post)

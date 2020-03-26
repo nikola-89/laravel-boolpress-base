@@ -27,7 +27,7 @@
 						<div class="text-area">
 							<textarea type="text" name="text" value="" placeholder="text"></textarea>
 						</div>
-						<button type="submit">Aggiungi</button>
+						<button type="submit">Inserisci</button>
 					</form>
 				</div>
 			</div>
