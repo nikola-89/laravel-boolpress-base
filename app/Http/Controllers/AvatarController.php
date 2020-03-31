@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Avatar;
+use App\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -18,7 +19,7 @@ class AvatarController extends Controller
     public function index()
     {
 		$avatars = Avatar::all();
-		return view("avatar.index",compact("avatars"));
+		return view("avatar.index", compact("avatars"));
     }
 
 	/**
@@ -45,12 +46,11 @@ class AvatarController extends Controller
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param Avatar $avatar
-	 * @return Factory|View
+	 * @return void
 	 */
-    public function show(Avatar $avatar)
+    public function show()
     {
-		return view("avatar.show", compact("avatar"));
+		//
     }
 
 	/**

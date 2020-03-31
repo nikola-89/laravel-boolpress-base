@@ -5,9 +5,10 @@
         <div class="row">
             @foreach ($avatars as $avatar)
                 <div class="col-12">
-                    <img src="{{$avatar->url}}" alt="">
-                    <p>User: {{$avatar->user->name}}</p>
-                    <a class="btn btn-primary" href="{{route("avatar.show", $avatar)}}">Show</a>
+                    <div class="avatars">
+                        <img src="{{$avatar->url}}" alt="">
+                        <p>User: {{$avatar->user->name}}</p>
+                    </div>
                 </div>
             @endforeach
         </div>
