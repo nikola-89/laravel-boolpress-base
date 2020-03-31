@@ -21,11 +21,11 @@
 							<input type="text" name="title" value="" placeholder="title">
 							<input type="text" name="author" value="" placeholder="author">
 							<input type="text" name="category" value="" placeholder="category">
-							<input type="text" name="original_source" value="" placeholder="original_source - opzionale">
-							<input type="text" name="img" value="" placeholder="img">
+							<input type="text" name="source" value="" placeholder="source - opzionale">
+							<input type="text" name="cover" value="" placeholder="cover">
 						</div>
 						<div class="text-area">
-							<textarea type="text" name="text" value="" placeholder="text"></textarea>
+							<textarea type="text" name="body" value="" placeholder="body"></textarea>
 						</div>
 						<button type="submit">Inserisci</button>
 					</form>

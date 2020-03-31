@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
 	private $validationPost = [
 		"title" => "string|required",
-		"author" => "string|required",
-		"text" => "string|required",
+		"body" => "string|required",
 		"category" => "string|required|max:50",
-		"original_source" => "nullable|string",
-		"img" => "string|required"
+		"source" => "nullable|string",
+		"cover" => "string|required"
 	];
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return \Illuminate\Http\Response
+	 * @return Factory|View
 	 */
 	public function index()
 	{
@@ -30,7 +33,7 @@ class PostController extends Controller
 	/**
 	 * Show the form for creating a new resource.
 	 *
-	 * @return \Illuminate\Http\Response
+	 * @return Factory|View
 	 */
 	public function create()
 	{
@@ -40,8 +43,8 @@ class PostController extends Controller
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
+	 * @param Request $request
+	 * @return RedirectResponse
 	 */
 	public function store(Request $request)
 	{
@@ -60,8 +63,8 @@ class PostController extends Controller
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
+	 * @param Post $post
+	 * @return Factory|View
 	 */
 	public function show(Post $post)
 	{
@@ -71,8 +74,8 @@ class PostController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
+	 * @param Post $post
+	 * @return Factory|View
 	 */
 	public function edit(Post $post)
 	{
@@ -82,9 +85,9 @@ class PostController extends Controller
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
+	 * @param Request $request
+	 * @param Post $post
+	 * @return RedirectResponse
 	 */
 	public function update(Request $request, Post $post)
 	{
@@ -101,8 +104,9 @@ class PostController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
+	 * @param Post $post
+	 * @return RedirectResponse
+	 * @throws \Exception
 	 */
 	public function destroy(Post $post)
 	{

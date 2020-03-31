@@ -19,13 +19,13 @@
 						@method('PATCH')
 						<div class="info-area">
 							<input type="text" name="title" value="{{$post->title}}" placeholder="title">
-							<input type="text" name="author" value="{{$post->author}}" placeholder="author">
+							<input type="text" name="author" value="{{$post->user->name}}" placeholder="author">
 							<input type="text" name="category" value="{{$post->category}}" placeholder="category">
-							<input type="text" name="original_source" value="{{$post->original_source}}" placeholder="original_source">
-							<input type="text" name="img" value="{{$post->img}}" placeholder="img_url">
+							<input type="text" name="source" value="{{$post->source}}" placeholder="original_source">
+							<input type="text" name="cover" value="{{$post->cover}}" placeholder="img_url">
 						</div>
 						<div class="text-area">
-							<textarea type="text" name="text" placeholder="text">{{$post->text}}</textarea>
+							<textarea type="text" name="body" placeholder="body">{{$post->body}}</textarea>
 						</div>
 						<button type="submit">Modifica</button>
 					</form>

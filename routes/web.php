@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PostController@index')->name('post.home');
 Route::resource('post', 'PostController');
+Route::resource('photo', 'PhotoController');
+Route::resource('avatar', 'AvatarController');
